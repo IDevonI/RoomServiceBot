@@ -8,7 +8,8 @@ import net.dv8tion.jda.api.events.guild.voice.GuildVoiceLeaveEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceMoveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.restaction.ChannelAction;
-import java.util.Map;
+import utils.ChannelNames;
+
 import java.util.Objects;
 
 
@@ -19,12 +20,12 @@ public class JustChattingEvent extends ListenerAdapter {
         Guild guild = event.getMember().getGuild();
         String name = "OutOfNames";
         if (event.getChannelJoined().getName().compareTo("➕│Just Chatting") == 0) {
-            for(int i=0;i<=15;i++)
+            for(int i=0;i<=10;i++)
             {
-                if(ChannelNames.available[i]==1)
+                if(ChannelNames.chattingAvailable[i]==1)
                 {
-                    ChannelNames.available[i]=0;
-                    name=ChannelNames.names[i];
+                    ChannelNames.chattingAvailable[i]=0;
+                    name=ChannelNames.chattingNames[i];
                     break;
                 }
             }
@@ -44,12 +45,12 @@ public class JustChattingEvent extends ListenerAdapter {
         Guild guild = event.getMember().getGuild();
         String name = "OutOfNames";
         if (event.getChannelJoined().getName().compareTo("➕│Just Chatting") == 0) {
-            for(int i=0;i<=15;i++)
+            for(int i=0;i<=10;i++)
             {
-                if(ChannelNames.available[i]==1)
+                if(ChannelNames.chattingAvailable[i]==1)
                 {
-                    ChannelNames.available[i]=0;
-                    name=ChannelNames.names[i];
+                    ChannelNames.chattingAvailable[i]=0;
+                    name=ChannelNames.chattingNames[i];
                     break;
                 }
             }
@@ -66,11 +67,11 @@ public class JustChattingEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                for(int i=0;i<=15;i++)
+                for(int i=0;i<=10;i++)
                 {
-                    if(ChannelNames.names[i].equals(event.getChannelLeft().getName()))
+                    if(ChannelNames.chattingNames[i].equals(event.getChannelLeft().getName()))
                     {
-                        ChannelNames.available[i]=1;
+                        ChannelNames.chattingAvailable[i]=1;
                         break;
                     }
                 }
@@ -84,11 +85,11 @@ public class JustChattingEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                for(int i=0;i<=15;i++)
+                for(int i=0;i<=10;i++)
                 {
-                    if(ChannelNames.names[i].equals(event.getChannelLeft().getName()))
+                    if(ChannelNames.chattingNames[i].equals(event.getChannelLeft().getName()))
                     {
-                        ChannelNames.available[i]=1;
+                        ChannelNames.chattingAvailable[i]=1;
                         break;
                     }
                 }
