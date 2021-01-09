@@ -9,8 +9,9 @@ import javax.security.auth.login.LoginException;
 public class Main {
     public static void main(String[] args) {
         JDA jda;
+        String token=System.getenv("TOKEN");
         try {
-            jda = JDABuilder.createDefault("Nzk3MjM3Njg5NzAzMjAyODI2.X_jjdQ.lkmOgNdIt0hrW2iiiYfzHA9VBHY").enableIntents(GatewayIntent.GUILD_PRESENCES).build();
+            jda = JDABuilder.createDefault(token).enableIntents(GatewayIntent.GUILD_PRESENCES).build();
             jda.addEventListener(new JustChattingEvent());
         } catch (LoginException e) {
             e.printStackTrace();
