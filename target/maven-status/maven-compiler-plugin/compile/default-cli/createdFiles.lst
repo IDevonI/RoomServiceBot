@@ -1,3 +1,4 @@
 Main.class
 events\JustChattingEvent.class
 utils\ChannelNames.class
+utils\Randomizer.class

@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.events.guild.voice.GuildVoiceMoveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.restaction.ChannelAction;
 import utils.ChannelNames;
+import utils.Randomizer;
 
 import java.util.Objects;
 
@@ -19,13 +20,15 @@ public class JustChattingEvent extends ListenerAdapter {
     {
         Guild guild = event.getMember().getGuild();
         String name = "OutOfNames";
-        if (event.getChannelJoined().getName().compareTo("➕│Just Chatting") == 0) {
-            for(int i=0;i<=10;i++)
+        if (event.getChannelJoined().getId().compareTo("797277191305822218")==0) {
+            Randomizer randomizer= new Randomizer();
+            int[] a=randomizer.giveRandom(0,ChannelNames.chattingNames.length,ChannelNames.chattingNames.length);
+            for(int i=0;i<=ChannelNames.chattingNames.length;i++)
             {
-                if(ChannelNames.chattingAvailable[i]==1)
+                if(ChannelNames.chattingAvailable[a[i]]==1)
                 {
-                    ChannelNames.chattingAvailable[i]=0;
-                    name=ChannelNames.chattingNames[i];
+                    ChannelNames.chattingAvailable[a[i]]=0;
+                    name=ChannelNames.chattingNames[a[i]];
                     break;
                 }
             }
@@ -43,13 +46,15 @@ public class JustChattingEvent extends ListenerAdapter {
     public void onGuildVoiceMove(GuildVoiceMoveEvent event) {
         Guild guild = event.getMember().getGuild();
         String name = "OutOfNames";
-        if (event.getChannelJoined().getName().compareTo("➕│Just Chatting") == 0) {
-            for(int i=0;i<=10;i++)
+        if (event.getChannelJoined().getId().compareTo("797277191305822218")==0) {
+            Randomizer randomizer= new Randomizer();
+            int[] a=randomizer.giveRandom(0,ChannelNames.chattingNames.length,ChannelNames.chattingNames.length);
+            for(int i=0;i<=ChannelNames.chattingNames.length;i++)
             {
-                if(ChannelNames.chattingAvailable[i]==1)
+                if(ChannelNames.chattingAvailable[a[i]]==1)
                 {
-                    ChannelNames.chattingAvailable[i]=0;
-                    name=ChannelNames.chattingNames[i];
+                    ChannelNames.chattingAvailable[a[i]]=0;
+                    name=ChannelNames.chattingNames[a[i]];
                     break;
                 }
             }
@@ -61,11 +66,11 @@ public class JustChattingEvent extends ListenerAdapter {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getName().equals("JUST CHATTING")&&!event.getChannelLeft().getName().equals("➕│Just Chatting"))
+        }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797228633613795418")&&!event.getChannelLeft().getId().equals("797277191305822218"))
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                for(int i=0;i<=10;i++)
+                for(int i=0;i<=ChannelNames.chattingNames.length;i++)
                 {
                     if(ChannelNames.chattingNames[i].equals(event.getChannelLeft().getName()))
                     {
@@ -79,11 +84,11 @@ public class JustChattingEvent extends ListenerAdapter {
     }
     public void onGuildVoiceLeave(GuildVoiceLeaveEvent event)
     {
-        if(Objects.requireNonNull(event.getChannelLeft().getParent()).getName().equals("JUST CHATTING")&&!event.getChannelLeft().getName().equals("➕│Just Chatting"))
+        if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797228633613795418")&&!event.getChannelLeft().getId().equals("797277191305822218"))
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                for(int i=0;i<=10;i++)
+                for(int i=0;i<=ChannelNames.chattingNames.length;i++)
                 {
                     if(ChannelNames.chattingNames[i].equals(event.getChannelLeft().getName()))
                     {
