@@ -1,1 +1,1 @@
-worker: java src/main/java/Main.java
+worker: jar target/RoomService-1.0-SNAPSHOT.jar
