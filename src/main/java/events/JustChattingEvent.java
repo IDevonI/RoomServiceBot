@@ -32,7 +32,6 @@ public class JustChattingEvent extends ListenerAdapter {
             ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
             ca=ca.setParent(event.getChannelJoined().getParent());
             VoiceChannel vc = ca.complete();
-            System.out.println(event.getMember());
             try {
                 guild.moveVoiceMember(event.getMember(), vc).queue();
             }catch(Exception e)
@@ -57,7 +56,6 @@ public class JustChattingEvent extends ListenerAdapter {
             ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
             ca = ca.setParent(event.getChannelJoined().getParent());
             VoiceChannel vc = ca.complete();
-            System.out.println(event.getMember());
             try {
                 guild.moveVoiceMember(event.getMember(), vc).queue();
             } catch (Exception e) {
