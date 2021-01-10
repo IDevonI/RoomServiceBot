@@ -25,10 +25,8 @@ public class LoLEvent extends ListenerAdapter {
             int i;
             for(i=1;found;i++)
             {
-                System.out.println(i-1);
-                found=ChannelNames.lol.contains(i-1);
+                found=ChannelNames.lol.contains(i);
             }
-            System.out.println(i-1);
             ChannelNames.lol.add(i-1);
             name="「\uD83D\uDD08」 LoL #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
@@ -49,10 +47,8 @@ public class LoLEvent extends ListenerAdapter {
             int i;
             for(i=1;found;i++)
             {
-                System.out.println(i-1);
-                found=ChannelNames.lol.contains(i-1);
+                found=ChannelNames.lol.contains(i);
             }
-            System.out.println(i-1);
             ChannelNames.lol.add(i-1);
             name="「\uD83D\uDD08」 LoL #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
