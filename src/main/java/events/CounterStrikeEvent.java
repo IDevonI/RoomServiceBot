@@ -60,7 +60,7 @@ public class CounterStrikeEvent extends ListenerAdapter {
                 }
         }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797304745178038322")&&!event.getChannelLeft().getId().equals("797305413040341058"))
         {
-            if(event.getChannelLeft().getMembers().isEmpty()&&!event.getChannelLeft().getName().contains("CS"))
+            if(event.getChannelLeft().getMembers().isEmpty()&&!event.getChannelLeft().getName().contains("CS")&&!event.getChannelLeft().getName().contains("➕"))
             {
                 ChannelNames.cs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
                 try {
@@ -75,7 +75,7 @@ public class CounterStrikeEvent extends ListenerAdapter {
     {
         if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797304745178038322")&&!event.getChannelLeft().getId().equals("797305413040341058"))
         {
-            if(event.getChannelLeft().getMembers().isEmpty()&&!event.getChannelLeft().getName().contains("CS"))
+            if(event.getChannelLeft().getMembers().isEmpty()&&!event.getChannelLeft().getName().contains("CS")&&!event.getChannelLeft().getName().contains("➕"))
             {
                 ChannelNames.cs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
                 try {
