@@ -29,7 +29,7 @@ public class LoLEvent extends ListenerAdapter {
                 found=ChannelNames.lol.contains(i);
             }
             ChannelNames.lol.add(i-1);
-            name="「\uD83D\uDD08」 LoL #"+ (i-1);
+            name="「\uD83D\uDD08」 League Of Legends #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -51,7 +51,7 @@ public class LoLEvent extends ListenerAdapter {
                 found=ChannelNames.lol.contains(i);
             }
             ChannelNames.lol.add(i-1);
-            name="「\uD83D\uDD08」 LoL #"+ (i-1);
+            name="「\uD83D\uDD08」 League Of Legends #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -60,15 +60,6 @@ public class LoLEvent extends ListenerAdapter {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            for(VoiceChannel g:event.getJDA().getVoiceChannels())
-            {
-                if(g!=null)
-                {
-                    if (Objects.requireNonNull(g.getParent()).getId().equals("797297810139250728") && g.getMembers().isEmpty()) {
-                        g.delete().queue();
-                    }
-                }
-            }
         }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797297810139250728")&&!event.getChannelLeft().getId().equals("797300475237498890"))
         {
             if(event.getChannelLeft().getMembers().isEmpty())

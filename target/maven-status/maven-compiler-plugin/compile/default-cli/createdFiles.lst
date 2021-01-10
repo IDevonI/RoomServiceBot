@@ -1,5 +1,15 @@
-events\LoLEvent.class
-Main.class
+events\MinecraftEvent.class
 events\JustChattingEvent.class
 utils\ChannelNames.class
+events\ValorantEvent.class
+events\TfTEvent.class
+events\WorldOfTanksEvent.class
+events\LoLEvent.class
+Main.class
+events\CounterStrikeEvent.class
+events\ApexLegendsEvent.class
+events\PhasmoEvent.class
 utils\Randomizer.class
+events\AmongUsEvent.class
+events\RocketLeagueEvent.class
+events\DeadByDaylightEvent.class
