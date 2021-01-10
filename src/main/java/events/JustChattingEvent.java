@@ -20,7 +20,7 @@ public class JustChattingEvent extends ListenerAdapter {
     {
         Guild guild = event.getMember().getGuild();
         String name = "OutOfNames";
-        if (event.getChannelJoined().getId().compareTo("797277191305822218")==0) {
+        if (event.getChannelJoined().getId().equals("797635390185930782")) {
             Randomizer randomizer = new Randomizer();
             int[] a = randomizer.giveRandom(0, ChannelNames.chattingNames.length, ChannelNames.chattingNames.length);
             for (int i = 0; i < ChannelNames.chattingNames.length; i++) {
@@ -48,7 +48,7 @@ public class JustChattingEvent extends ListenerAdapter {
     public void onGuildVoiceMove(GuildVoiceMoveEvent event) {
         Guild guild = event.getMember().getGuild();
         String name = "OutOfNames";
-        if (event.getChannelJoined().getId().compareTo("797277191305822218")==0) {
+        if (event.getChannelJoined().getId().equals("797635390185930782")) {
             Randomizer randomizer= new Randomizer();
             int[] a=randomizer.giveRandom(0,ChannelNames.chattingNames.length,ChannelNames.chattingNames.length);
             for(int i=0;i<ChannelNames.chattingNames.length;i++)
@@ -73,7 +73,7 @@ public class JustChattingEvent extends ListenerAdapter {
             {
                 event.getMember().kick("Limit pokoi jest aktualnie wyczerpany!Spróbuj później.").queue();
             }
-        }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797228633613795418"))
+        }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797228633613795418")&&!event.getChannelLeft().getId().equals("797635390185930782"))
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
@@ -91,7 +91,7 @@ public class JustChattingEvent extends ListenerAdapter {
     }
     public void onGuildVoiceLeave(GuildVoiceLeaveEvent event)
     {
-        if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797228633613795418"))
+        if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797228633613795418")&&!event.getChannelLeft().getId().equals("797635390185930782"))
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
