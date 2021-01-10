@@ -1,4 +1,5 @@
 import events.JustChattingEvent;
+import events.LoLEvent;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -12,6 +13,7 @@ public class Main {
         try {
             jda = JDABuilder.createDefault(token).enableIntents(GatewayIntent.GUILD_PRESENCES).build();
             jda.addEventListener(new JustChattingEvent());
+            jda.addEventListener(new LoLEvent());
         } catch (LoginException e) {
             e.printStackTrace();
         }
