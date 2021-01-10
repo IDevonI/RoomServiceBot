@@ -46,9 +46,11 @@ public class LoLEvent extends ListenerAdapter {
         if (event.getChannelJoined().getId().equals("797300475237498890")) {
             for(GuildChannel g:event.getGuild().getChannels())
             {
-                if(Objects.requireNonNull(g.getParent()).getId().equals("797635390185930782")&&g.getMembers().isEmpty())
+                if(g!=null)
                 {
-                    g.delete().queue();
+                    if (Objects.requireNonNull(g.getParent()).getId().equals("797297810139250728") && g.getMembers().isEmpty()) {
+                        g.delete().queue();
+                    }
                 }
             }
             boolean found=true;
