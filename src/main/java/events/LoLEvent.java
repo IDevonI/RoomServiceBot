@@ -44,15 +44,6 @@ public class LoLEvent extends ListenerAdapter {
         Guild guild = event.getMember().getGuild();
         String name;
         if (event.getChannelJoined().getId().equals("797300475237498890")) {
-            for(VoiceChannel g:event.getJDA().getVoiceChannels())
-            {
-                if(g!=null)
-                {
-                    if (Objects.requireNonNull(g.getParent()).getId().equals("797297810139250728") && g.getMembers().isEmpty()) {
-                        g.delete().queue();
-                    }
-                }
-            }
             boolean found=true;
             int i;
             for(i=1;found;i++)
@@ -69,6 +60,15 @@ public class LoLEvent extends ListenerAdapter {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            for(VoiceChannel g:event.getJDA().getVoiceChannels())
+            {
+                if(g!=null)
+                {
+                    if (Objects.requireNonNull(g.getParent()).getId().equals("797297810139250728") && g.getMembers().isEmpty()) {
+                        g.delete().queue();
+                    }
+                }
+            }
         }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797297810139250728")&&!event.getChannelLeft().getId().equals("797300475237498890"))
         {
             if(event.getChannelLeft().getMembers().isEmpty())

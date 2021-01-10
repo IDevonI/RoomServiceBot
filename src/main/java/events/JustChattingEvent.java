@@ -51,15 +51,6 @@ public class JustChattingEvent extends ListenerAdapter {
         Guild guild = event.getMember().getGuild();
         String name = "OutOfNames";
         if (event.getChannelJoined().getId().equals("797635390185930782")) {
-            for(VoiceChannel g:event.getJDA().getVoiceChannels())
-            {   if(g!=null)
-                {
-                    if(Objects.requireNonNull(g.getParent()).getId().equals("797228633613795418")&&g.getMembers().isEmpty())
-                    {
-                        g.delete().queue();
-                    }
-                }
-            }
             Randomizer randomizer= new Randomizer();
             int[] a=randomizer.giveRandom(0,ChannelNames.chattingNames.length,ChannelNames.chattingNames.length);
             for(int i=0;i<ChannelNames.chattingNames.length;i++)
@@ -79,6 +70,17 @@ public class JustChattingEvent extends ListenerAdapter {
                     guild.moveVoiceMember(event.getMember(), vc).queue();
                 } catch (Exception e) {
                     e.printStackTrace();
+                }
+                for(VoiceChannel g:event.getGuild().getVoiceChannels())
+                {
+                    System.out.println();
+                    /*if(g!=null)
+                    {
+                        if(Objects.requireNonNull(g.getParent()).getId().equals("797228633613795418")&&g.getMembers().isEmpty())
+                        {
+                            g.delete().queue();
+                        }
+                    }*/
                 }
             }else
             {
