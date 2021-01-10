@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.events.guild.voice.GuildVoiceLeaveEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceMoveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.restaction.ChannelAction;
+import org.jetbrains.annotations.NotNull;
 import utils.ChannelNames;
 
 import java.util.Objects;
@@ -15,19 +16,19 @@ import java.util.Objects;
 
 public class CounterStrikeEvent extends ListenerAdapter {
 
-    public void onGuildVoiceJoin(GuildVoiceJoinEvent event)
+    public void onGuildVoiceJoin(@NotNull GuildVoiceJoinEvent event)
     {
-        Guild guild = event.getMember().getGuild();
-        String name;
-        if (event.getChannelJoined().getId().equals("797305413040341058")) {
-            boolean found=true;
-            int i;
-            for(i=1;found;i++)
-            {
-                found=ChannelNames.cs.contains(i);
-            }
-            ChannelNames.cs.add(i-1);
-            name="「\uD83D\uDD08」 #"+(i-1)+" CS";
+        new Thread(() -> {
+            Guild guild = event.getMember().getGuild();
+            String name;
+            if (event.getChannelJoined().getId().equals("797305413040341058")) {
+                boolean found = true;
+                int i;
+                for (i = 1; found; i++) {
+                    found = ChannelNames.cs.contains(i);
+                }
+                ChannelNames.cs.add(i - 1);
+                name = "「\uD83D\uDD08」 #" + (i - 1) + " CS";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -36,20 +37,21 @@ public class CounterStrikeEvent extends ListenerAdapter {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-        }
-    }
-    public void onGuildVoiceMove(GuildVoiceMoveEvent event) {
-        Guild guild = event.getMember().getGuild();
-        String name;
-        if (event.getChannelJoined().getId().equals("797305413040341058")) {
-            boolean found=true;
-            int i;
-            for(i=1;found;i++)
-            {
-                found=ChannelNames.cs.contains(i);
             }
-            ChannelNames.cs.add(i-1);
-            name="「\uD83D\uDD08」 #"+(i-1)+" CS";
+        }).start();
+    }
+    public void onGuildVoiceMove(@NotNull GuildVoiceMoveEvent event) {
+        new Thread(() -> {
+            Guild guild = event.getMember().getGuild();
+            String name;
+            if (event.getChannelJoined().getId().equals("797305413040341058")) {
+                boolean found = true;
+                int i;
+                for (i = 1; found; i++) {
+                    found = ChannelNames.cs.contains(i);
+                }
+                ChannelNames.cs.add(i - 1);
+                name = "「\uD83D\uDD08」 #" + (i - 1) + " CS";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -58,32 +60,31 @@ public class CounterStrikeEvent extends ListenerAdapter {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-        }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797304745178038322")&&!event.getChannelLeft().getId().equals("797305413040341058"))
-        {
-            if(event.getChannelLeft().getMembers().isEmpty()&&!event.getChannelLeft().getName().contains("CS")&&!event.getChannelLeft().getName().contains("➕"))
-            {
-                ChannelNames.cs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
-                try {
-                    event.getChannelLeft().delete().queue();
-                }catch (Exception e) {
-                    e.printStackTrace();
+            } else if (Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797304745178038322") && !event.getChannelLeft().getId().equals("797305413040341058")) {
+                if (event.getChannelLeft().getMembers().isEmpty() && event.getChannelLeft().getName().contains("CS") && !event.getChannelLeft().getName().contains("➕")) {
+                    ChannelNames.cs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6, 7)));
+                    try {
+                        event.getChannelLeft().delete().queue();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
-        }
+        }).start();
     }
-    public void onGuildVoiceLeave(GuildVoiceLeaveEvent event)
+    public void onGuildVoiceLeave(@NotNull GuildVoiceLeaveEvent event)
     {
-        if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797304745178038322")&&!event.getChannelLeft().getId().equals("797305413040341058"))
-        {
-            if(event.getChannelLeft().getMembers().isEmpty()&&!event.getChannelLeft().getName().contains("CS")&&!event.getChannelLeft().getName().contains("➕"))
-            {
-                ChannelNames.cs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
-                try {
-                    event.getChannelLeft().delete().queue();
-                }catch (Exception e) {
-                    e.printStackTrace();
+        new Thread(() -> {
+            if (Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797304745178038322") && !event.getChannelLeft().getId().equals("797305413040341058")) {
+                if (event.getChannelLeft().getMembers().isEmpty() && event.getChannelLeft().getName().contains("CS") && !event.getChannelLeft().getName().contains("➕")) {
+                    ChannelNames.cs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6, 7)));
+                    try {
+                        event.getChannelLeft().delete().queue();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
-        }
+        }).start();
     }
 }
