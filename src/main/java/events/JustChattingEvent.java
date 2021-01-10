@@ -51,7 +51,7 @@ public class JustChattingEvent extends ListenerAdapter {
         Guild guild = event.getMember().getGuild();
         String name = "OutOfNames";
         if (event.getChannelJoined().getId().equals("797635390185930782")) {
-            for(GuildChannel g:event.getGuild().getChannels())
+            for(VoiceChannel g:event.getJDA().getVoiceChannels())
             {   if(g!=null)
                 {
                     if(Objects.requireNonNull(g.getParent()).getId().equals("797228633613795418")&&g.getMembers().isEmpty())

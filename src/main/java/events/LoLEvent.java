@@ -44,7 +44,7 @@ public class LoLEvent extends ListenerAdapter {
         Guild guild = event.getMember().getGuild();
         String name;
         if (event.getChannelJoined().getId().equals("797300475237498890")) {
-            for(GuildChannel g:event.getGuild().getChannels())
+            for(VoiceChannel g:event.getJDA().getVoiceChannels())
             {
                 if(g!=null)
                 {
