@@ -29,8 +29,8 @@ public class LoLEvent extends ListenerAdapter {
                 found=ChannelNames.lol.contains(i-1);
             }
             System.out.println(i);
-            ChannelNames.lol.add(i-1);
-            name="「\uD83D\uDD08」 LoL #"+ (i-1);
+            ChannelNames.lol.add(i-2);
+            name="「\uD83D\uDD08」 LoL #"+ (i-2);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -53,8 +53,8 @@ public class LoLEvent extends ListenerAdapter {
                 found=ChannelNames.lol.contains(i-1);
             }
             System.out.println(i);
-            ChannelNames.lol.add(i-1);
-            name="「\uD83D\uDD08」 LoL #"+ (i-1);
+            ChannelNames.lol.add(i-2);
+            name="「\uD83D\uDD08」 LoL #"+ (i-2);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
