@@ -30,8 +30,8 @@ public class PhasmoEvent extends ListenerAdapter {
             name="「\uD83D\uDD08」 #"+(i-1)+" Phasmophobia";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
-                VoiceChannel vc = ca.complete();
                 ca = ca.setUserlimit(4);
+                VoiceChannel vc = ca.complete();
                 try {
                     guild.moveVoiceMember(event.getMember(), vc).queue();
                 } catch (Exception e) {
