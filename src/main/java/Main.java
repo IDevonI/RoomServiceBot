@@ -15,6 +15,8 @@ public class Main {
             jda.addEventListener(new LoLEvent());
             jda.addEventListener(new AmongUsEvent());
             jda.addEventListener(new ApexLegendsEvent());
+            jda.addEventListener(new ApexLegendsDuoEvent());
+            jda.addEventListener(new ApexLegendsTrioEvent());
             jda.addEventListener(new CounterStrikeEvent());
             jda.addEventListener(new DeadByDaylightEvent());
             jda.addEventListener(new MinecraftEvent());

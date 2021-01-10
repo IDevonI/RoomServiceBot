@@ -1,5 +1,7 @@
+events\ApexLegendsDuoEvent.class
 events\MinecraftEvent.class
 events\JustChattingEvent.class
+events\ApexLegendsTrioEvent.class
 utils\ChannelNames.class
 events\ValorantEvent.class
 events\TfTEvent.class
