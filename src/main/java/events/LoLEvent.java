@@ -2,6 +2,7 @@ package events;
 
 
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.GuildChannel;
 import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceJoinEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceLeaveEvent;
@@ -43,6 +44,13 @@ public class LoLEvent extends ListenerAdapter {
         Guild guild = event.getMember().getGuild();
         String name;
         if (event.getChannelJoined().getId().equals("797300475237498890")) {
+            for(GuildChannel g:event.getGuild().getChannels())
+            {
+                if(Objects.requireNonNull(g.getParent()).getId().equals("797635390185930782")&&g.getMembers().isEmpty())
+                {
+                    g.delete().queue();
+                }
+            }
             boolean found=true;
             int i;
             for(i=1;found;i++)

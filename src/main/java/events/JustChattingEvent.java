@@ -2,6 +2,7 @@ package events;
 
 
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.GuildChannel;
 import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceJoinEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceLeaveEvent;
@@ -41,7 +42,8 @@ public class JustChattingEvent extends ListenerAdapter {
                 }
             }else
             {
-                event.getMember().kick("Limit pokoi jest aktualnie wyczerpany!Spróbuj później.").queue();
+                event.getMember().getUser().openPrivateChannel().queue(
+                        (channel)-> channel.sendMessage("Limit pokoi jest aktualnie wyczerpany!Spróbuj później.").queue());
             }
         }
     }
@@ -49,6 +51,13 @@ public class JustChattingEvent extends ListenerAdapter {
         Guild guild = event.getMember().getGuild();
         String name = "OutOfNames";
         if (event.getChannelJoined().getId().equals("797635390185930782")) {
+            for(GuildChannel g:event.getGuild().getChannels())
+            {
+                if(Objects.requireNonNull(g.getParent()).getId().equals("797635390185930782")&&g.getMembers().isEmpty())
+                {
+                    g.delete().queue();
+                }
+            }
             Randomizer randomizer= new Randomizer();
             int[] a=randomizer.giveRandom(0,ChannelNames.chattingNames.length,ChannelNames.chattingNames.length);
             for(int i=0;i<ChannelNames.chattingNames.length;i++)
@@ -71,14 +80,13 @@ public class JustChattingEvent extends ListenerAdapter {
                 }
             }else
             {
-                event.getMember().kick("Limit pokoi jest aktualnie wyczerpany!Spróbuj później.").queue();
+                event.getMember().getUser().openPrivateChannel().queue(
+                        (channel)-> channel.sendMessage("Limit pokoi jest aktualnie wyczerpany!Spróbuj później.").queue());
             }
         }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797228633613795418")&&!event.getChannelLeft().getId().equals("797635390185930782"))
         {
-            System.out.println("moved");
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                System.out.println("empty");
                 for(int i=0;i<ChannelNames.chattingNames.length;i++)
                 {
                     if(ChannelNames.chattingNames[i].equals(event.getChannelLeft().getName()))
@@ -89,13 +97,6 @@ public class JustChattingEvent extends ListenerAdapter {
                 }
                 event.getChannelLeft().delete().queue();
             }
-        }else
-        {
-            System.out.println("Err");
-            System.out.println(event.getChannelLeft().getParent().getId());
-            System.out.println(event.getChannelLeft().getParent().getName());
-            System.out.println(event.getChannelLeft().getId());
-            System.out.println(event.getChannelLeft().getName());
         }
     }
     public void onGuildVoiceLeave(GuildVoiceLeaveEvent event)
