@@ -89,6 +89,13 @@ public class JustChattingEvent extends ListenerAdapter {
                 }
                 event.getChannelLeft().delete().queue();
             }
+        }else
+        {
+            System.out.println("Err");
+            System.out.println(event.getChannelLeft().getParent().getId());
+            System.out.println(event.getChannelLeft().getParent().getName());
+            System.out.println(event.getChannelLeft().getId());
+            System.out.println(event.getChannelLeft().getName());
         }
     }
     public void onGuildVoiceLeave(GuildVoiceLeaveEvent event)
