@@ -25,10 +25,10 @@ public class LoLEvent extends ListenerAdapter {
             int i;
             for(i=1;found;i++)
             {
-                found=ChannelNames.lol.contains(i);
+                found=ChannelNames.lol.contains(i-1);
             }
-            ChannelNames.lol.add(i);
-            name="「:sound:」 LoL #"+ i;
+            ChannelNames.lol.add(i-1);
+            name="「\uD83D\uDD08」 LoL #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -47,10 +47,10 @@ public class LoLEvent extends ListenerAdapter {
             int i;
             for(i=1;found;i++)
             {
-                found=ChannelNames.lol.contains(i);
+                found=ChannelNames.lol.contains(i-1);
             }
-            ChannelNames.lol.add(i);
-            name="「:sound:」 LoL #"+ i;
+            ChannelNames.lol.add(i-1);
+            name="「\uD83D\uDD08」 LoL #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -59,7 +59,7 @@ public class LoLEvent extends ListenerAdapter {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-        }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797297810139250728")&&!event.getChannelLeft().getId().equals("797300475237498890"))
+        }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797297810139250728"))
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
@@ -70,7 +70,7 @@ public class LoLEvent extends ListenerAdapter {
     }
     public void onGuildVoiceLeave(GuildVoiceLeaveEvent event)
     {
-        if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797297810139250728")&&!event.getChannelLeft().getId().equals("797300475237498890"))
+        if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797297810139250728"))
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {

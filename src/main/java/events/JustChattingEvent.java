@@ -73,7 +73,7 @@ public class JustChattingEvent extends ListenerAdapter {
             {
                 event.getMember().kick("Limit pokoi jest aktualnie wyczerpany!Spróbuj później.").queue();
             }
-        }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797228633613795418")&&!event.getChannelLeft().getId().equals("797277191305822218"))
+        }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797228633613795418"))
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
@@ -91,7 +91,7 @@ public class JustChattingEvent extends ListenerAdapter {
     }
     public void onGuildVoiceLeave(GuildVoiceLeaveEvent event)
     {
-        if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797228633613795418")&&!event.getChannelLeft().getId().equals("797277191305822218"))
+        if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797228633613795418"))
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
