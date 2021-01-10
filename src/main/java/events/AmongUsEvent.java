@@ -27,7 +27,7 @@ public class AmongUsEvent extends ListenerAdapter {
                 found=ChannelNames.amongUs.contains(i);
             }
             ChannelNames.amongUs.add(i-1);
-            name="「\uD83D\uDD08」 Among Us #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" AmongUs";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 ca = ca.setUserlimit(10);
@@ -50,7 +50,7 @@ public class AmongUsEvent extends ListenerAdapter {
                 found=ChannelNames.amongUs.contains(i);
             }
             ChannelNames.amongUs.add(i-1);
-            name="「\uD83D\uDD08」 Among Us #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" AmongUs";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 ca = ca.setUserlimit(10);
@@ -64,8 +64,12 @@ public class AmongUsEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.amongUs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.amongUs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -75,8 +79,12 @@ public class AmongUsEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.amongUs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.amongUs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

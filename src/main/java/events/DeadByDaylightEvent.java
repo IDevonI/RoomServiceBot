@@ -27,9 +27,10 @@ public class DeadByDaylightEvent extends ListenerAdapter {
                 found=ChannelNames.dbd.contains(i);
             }
             ChannelNames.dbd.add(i-1);
-            name="「\uD83D\uDD08」 DBD #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" DBD";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
+                ca = ca.setUserlimit(5);
                 VoiceChannel vc = ca.complete();
                 try {
                     guild.moveVoiceMember(event.getMember(), vc).queue();
@@ -49,9 +50,10 @@ public class DeadByDaylightEvent extends ListenerAdapter {
                 found=ChannelNames.dbd.contains(i);
             }
             ChannelNames.dbd.add(i-1);
-            name="「\uD83D\uDD08」 DBD #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" DBD";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
+                ca = ca.setUserlimit(5);
                 VoiceChannel vc = ca.complete();
                 try {
                     guild.moveVoiceMember(event.getMember(), vc).queue();
@@ -62,8 +64,12 @@ public class DeadByDaylightEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.dbd.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.dbd.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -73,8 +79,12 @@ public class DeadByDaylightEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.dbd.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.dbd.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

@@ -27,7 +27,7 @@ public class TfTEvent extends ListenerAdapter {
                 found=ChannelNames.tft.contains(i);
             }
             ChannelNames.tft.add(i-1);
-            name="「\uD83D\uDD08」 TFT #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" TFT";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -49,7 +49,7 @@ public class TfTEvent extends ListenerAdapter {
                 found=ChannelNames.tft.contains(i);
             }
             ChannelNames.tft.add(i-1);
-            name="「\uD83D\uDD08」 TFT #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" TFT";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -62,8 +62,12 @@ public class TfTEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.tft.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.tft.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -73,8 +77,12 @@ public class TfTEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.tft.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.tft.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

@@ -88,7 +88,11 @@ public class JustChattingEvent extends ListenerAdapter {
                         break;
                     }
                 }
-                event.getChannelLeft().delete().queue();
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -106,7 +110,11 @@ public class JustChattingEvent extends ListenerAdapter {
                         break;
                     }
                 }
-                event.getChannelLeft().delete().queue();
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

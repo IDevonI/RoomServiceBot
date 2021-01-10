@@ -27,7 +27,7 @@ public class CounterStrikeEvent extends ListenerAdapter {
                 found=ChannelNames.cs.contains(i);
             }
             ChannelNames.cs.add(i-1);
-            name="「\uD83D\uDD08」 CS #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" CS";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -49,7 +49,7 @@ public class CounterStrikeEvent extends ListenerAdapter {
                 found=ChannelNames.cs.contains(i);
             }
             ChannelNames.cs.add(i-1);
-            name="「\uD83D\uDD08」 CS #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" CS";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -62,8 +62,12 @@ public class CounterStrikeEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.cs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.cs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -73,8 +77,12 @@ public class CounterStrikeEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.cs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.cs.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

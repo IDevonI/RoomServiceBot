@@ -63,7 +63,11 @@ public class ApexLegendsEvent extends ListenerAdapter {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
                 ChannelNames.apexLegends.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
-                event.getChannelLeft().delete().queue();
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -74,7 +78,11 @@ public class ApexLegendsEvent extends ListenerAdapter {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
                 ChannelNames.apexLegends.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
-                event.getChannelLeft().delete().queue();
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

@@ -27,7 +27,7 @@ public class MinecraftEvent extends ListenerAdapter {
                 found=ChannelNames.minecraft.contains(i);
             }
             ChannelNames.minecraft.add(i-1);
-            name="「\uD83D\uDD08」 Minecraft #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" Minecraft";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -49,7 +49,7 @@ public class MinecraftEvent extends ListenerAdapter {
                 found=ChannelNames.minecraft.contains(i);
             }
             ChannelNames.minecraft.add(i-1);
-            name="「\uD83D\uDD08」 Minecraft #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" Minecraft";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -62,8 +62,12 @@ public class MinecraftEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.minecraft.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.minecraft.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -73,8 +77,12 @@ public class MinecraftEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.minecraft.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.minecraft.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

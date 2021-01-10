@@ -27,10 +27,11 @@ public class PhasmoEvent extends ListenerAdapter {
                 found=ChannelNames.phasmophobia.contains(i);
             }
             ChannelNames.phasmophobia.add(i-1);
-            name="「\uD83D\uDD08」 Phasmo #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" Phasmophobia";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
+                ca = ca.setUserlimit(4);
                 try {
                     guild.moveVoiceMember(event.getMember(), vc).queue();
                 } catch (Exception e) {
@@ -49,9 +50,10 @@ public class PhasmoEvent extends ListenerAdapter {
                 found=ChannelNames.phasmophobia.contains(i);
             }
             ChannelNames.phasmophobia.add(i-1);
-            name="「\uD83D\uDD08」 Phasmo #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" Phasmophobia";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
+                ca = ca.setUserlimit(4);
                 VoiceChannel vc = ca.complete();
                 try {
                     guild.moveVoiceMember(event.getMember(), vc).queue();
@@ -62,8 +64,12 @@ public class PhasmoEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.phasmophobia.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.phasmophobia.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -73,8 +79,12 @@ public class PhasmoEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.phasmophobia.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.phasmophobia.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

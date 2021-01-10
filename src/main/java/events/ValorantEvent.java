@@ -27,7 +27,7 @@ public class ValorantEvent extends ListenerAdapter {
                 found=ChannelNames.valorant.contains(i);
             }
             ChannelNames.valorant.add(i-1);
-            name="「\uD83D\uDD08」 Valorant #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" Valorant";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -49,7 +49,7 @@ public class ValorantEvent extends ListenerAdapter {
                 found=ChannelNames.valorant.contains(i);
             }
             ChannelNames.valorant.add(i-1);
-            name="「\uD83D\uDD08」 Valorant #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" Valorant";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -62,8 +62,12 @@ public class ValorantEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.valorant.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.valorant.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -73,8 +77,12 @@ public class ValorantEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.valorant.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.valorant.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

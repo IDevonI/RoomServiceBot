@@ -27,7 +27,7 @@ public class RocketLeagueEvent extends ListenerAdapter {
                 found=ChannelNames.rocketLeague.contains(i);
             }
             ChannelNames.rocketLeague.add(i-1);
-            name="「\uD83D\uDD08」 RC #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" Rocket League";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -49,7 +49,7 @@ public class RocketLeagueEvent extends ListenerAdapter {
                 found=ChannelNames.rocketLeague.contains(i);
             }
             ChannelNames.rocketLeague.add(i-1);
-            name="「\uD83D\uDD08」 RC #"+ (i-1);
+            name="「\uD83D\uDD08」 #"+(i-1)+" Rocket League";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -62,8 +62,12 @@ public class RocketLeagueEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.rocketLeague.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.rocketLeague.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -73,8 +77,12 @@ public class RocketLeagueEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.rocketLeague.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(event.getChannelLeft().getName().length()-1)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.rocketLeague.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

@@ -24,9 +24,9 @@ public class ApexLegendsTrioEvent extends ListenerAdapter {
             int i;
             for(i=1;found;i++)
             {
-                found=ChannelNames.apexLegends.contains(i);
+                found=ChannelNames.apexLegendsTrio.contains(i);
             }
-            ChannelNames.apexLegends.add(i-1);
+            ChannelNames.apexLegendsTrio.add(i-1);
             name="「\uD83D\uDD08」 #"+(i-1)+" ApexTrio";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
@@ -47,9 +47,9 @@ public class ApexLegendsTrioEvent extends ListenerAdapter {
             int i;
             for(i=1;found;i++)
             {
-                found=ChannelNames.apexLegends.contains(i);
+                found=ChannelNames.apexLegendsTrio.contains(i);
             }
-            ChannelNames.apexLegends.add(i-1);
+            ChannelNames.apexLegendsTrio.add(i-1);
             name="「\uD83D\uDD08」 #"+(i-1)+" ApexTrio";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
@@ -64,10 +64,12 @@ public class ApexLegendsTrioEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                System.out.println(event.getChannelLeft().getName().substring(6));
-                System.out.println(event.getChannelLeft().getName().substring(6,7));
-                ChannelNames.apexLegends.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.apexLegendsTrio.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -77,8 +79,12 @@ public class ApexLegendsTrioEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.apexLegends.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
-                event.getChannelLeft().delete().queue();
+                ChannelNames.apexLegendsTrio.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
+                try {
+                    event.getChannelLeft().delete().queue();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
