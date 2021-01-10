@@ -1,7 +1,6 @@
 package events;
 
 
-import net.dv8tion.jda.api.entities.Category;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceJoinEvent;
@@ -30,7 +29,7 @@ public class CounterStrikeRankedEvent extends ListenerAdapter {
             ChannelNames.csRanked.add(i-1);
             name="「\uD83D\uDD08」 #"+(i-1)+" Rankingowa";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
-                ca = ca.setParent((Category) event.getChannelJoined());
+                ca = ca.setParent(event.getChannelJoined().getParent());
                 ca = ca.setUserlimit(5);
                 VoiceChannel vc = ca.complete();
                 try {
@@ -53,7 +52,7 @@ public class CounterStrikeRankedEvent extends ListenerAdapter {
             ChannelNames.csRanked.add(i-1);
             name="「\uD83D\uDD08」 #"+(i-1)+" Rankingowa";
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
-                ca = ca.setParent((Category) event.getChannelJoined());
+                ca = ca.setParent(event.getChannelJoined().getParent());
                 ca = ca.setUserlimit(5);
                 VoiceChannel vc = ca.complete();
                 try {
@@ -61,9 +60,9 @@ public class CounterStrikeRankedEvent extends ListenerAdapter {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-        }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797840182551642132"))
+        }else if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797304745178038322")&&!event.getChannelLeft().getId().equals("797840182551642132"))
         {
-            if(event.getChannelLeft().getMembers().isEmpty())
+            if(event.getChannelLeft().getMembers().isEmpty()&&event.getChannelLeft().getName().contains("Rankingowa"))
             {
                 ChannelNames.csRanked.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
                 try {
@@ -76,9 +75,9 @@ public class CounterStrikeRankedEvent extends ListenerAdapter {
     }
     public void onGuildVoiceLeave(GuildVoiceLeaveEvent event)
     {
-        if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797840182551642132"))
+        if(Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797304745178038322")&&!event.getChannelLeft().getId().equals("797840182551642132"))
         {
-            if(event.getChannelLeft().getMembers().isEmpty())
+            if(event.getChannelLeft().getMembers().isEmpty()&&event.getChannelLeft().getName().contains("Rankingowa"))
             {
                 ChannelNames.csRanked.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
                 try {
