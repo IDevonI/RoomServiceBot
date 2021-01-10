@@ -27,7 +27,7 @@ public class RocketLeagueEvent extends ListenerAdapter {
                 found=ChannelNames.rocketLeague.contains(i);
             }
             ChannelNames.rocketLeague.add(i-1);
-            name="「\uD83D\uDD08」 Rocket League #"+ (i-1);
+            name="「\uD83D\uDD08」 RC #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -49,7 +49,7 @@ public class RocketLeagueEvent extends ListenerAdapter {
                 found=ChannelNames.rocketLeague.contains(i);
             }
             ChannelNames.rocketLeague.add(i-1);
-            name="「\uD83D\uDD08」 Rocket League #"+ (i-1);
+            name="「\uD83D\uDD08」 RC #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();

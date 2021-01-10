@@ -27,7 +27,7 @@ public class TfTEvent extends ListenerAdapter {
                 found=ChannelNames.tft.contains(i);
             }
             ChannelNames.tft.add(i-1);
-            name="「\uD83D\uDD08」 Teamfight Tactics #"+ (i-1);
+            name="「\uD83D\uDD08」 TFT #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -49,7 +49,7 @@ public class TfTEvent extends ListenerAdapter {
                 found=ChannelNames.tft.contains(i);
             }
             ChannelNames.tft.add(i-1);
-            name="「\uD83D\uDD08」 Teamfight Tactits #"+ (i-1);
+            name="「\uD83D\uDD08」 TFT #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();

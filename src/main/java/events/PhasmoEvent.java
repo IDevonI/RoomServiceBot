@@ -27,7 +27,7 @@ public class PhasmoEvent extends ListenerAdapter {
                 found=ChannelNames.phasmophobia.contains(i);
             }
             ChannelNames.phasmophobia.add(i-1);
-            name="「\uD83D\uDD08」 Phasmophobia #"+ (i-1);
+            name="「\uD83D\uDD08」 Phasmo #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -49,7 +49,7 @@ public class PhasmoEvent extends ListenerAdapter {
                 found=ChannelNames.phasmophobia.contains(i);
             }
             ChannelNames.phasmophobia.add(i-1);
-            name="「\uD83D\uDD08」 Phasmophobia #"+ (i-1);
+            name="「\uD83D\uDD08」 Phasmo #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();

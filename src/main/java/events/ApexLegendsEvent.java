@@ -27,7 +27,7 @@ public class ApexLegendsEvent extends ListenerAdapter {
                 found=ChannelNames.apexLegends.contains(i);
             }
             ChannelNames.apexLegends.add(i-1);
-            name="「\uD83D\uDD08」 Apex Legends #"+ (i-1);
+            name="「\uD83D\uDD08」 Apex #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -49,7 +49,7 @@ public class ApexLegendsEvent extends ListenerAdapter {
                 found=ChannelNames.apexLegends.contains(i);
             }
             ChannelNames.apexLegends.add(i-1);
-            name="「\uD83D\uDD08」 Apex Legends #"+ (i-1);
+            name="「\uD83D\uDD08」 Apex #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();

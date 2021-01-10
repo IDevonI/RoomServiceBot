@@ -27,7 +27,7 @@ public class DeadByDaylightEvent extends ListenerAdapter {
                 found=ChannelNames.dbd.contains(i);
             }
             ChannelNames.dbd.add(i-1);
-            name="「\uD83D\uDD08」 Dead By Daylight #"+ (i-1);
+            name="「\uD83D\uDD08」 DBD #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -49,7 +49,7 @@ public class DeadByDaylightEvent extends ListenerAdapter {
                 found=ChannelNames.dbd.contains(i);
             }
             ChannelNames.dbd.add(i-1);
-            name="「\uD83D\uDD08」 Dead By Daylight #"+ (i-1);
+            name="「\uD83D\uDD08」 DBD #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();

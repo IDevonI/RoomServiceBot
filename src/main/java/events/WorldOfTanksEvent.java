@@ -27,7 +27,7 @@ public class WorldOfTanksEvent extends ListenerAdapter {
                 found=ChannelNames.wot.contains(i);
             }
             ChannelNames.wot.add(i-1);
-            name="「\uD83D\uDD08」 World Of Tanks #"+ (i-1);
+            name="「\uD83D\uDD08」 WoT #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -49,7 +49,7 @@ public class WorldOfTanksEvent extends ListenerAdapter {
                 found=ChannelNames.wot.contains(i);
             }
             ChannelNames.wot.add(i-1);
-            name="「\uD83D\uDD08」 World Of Tanks #"+ (i-1);
+            name="「\uD83D\uDD08」 WoT #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();

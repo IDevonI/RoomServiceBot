@@ -27,7 +27,7 @@ public class CounterStrikeEvent extends ListenerAdapter {
                 found=ChannelNames.cs.contains(i);
             }
             ChannelNames.cs.add(i-1);
-            name="「\uD83D\uDD08」 Counter Strike #"+ (i-1);
+            name="「\uD83D\uDD08」 CS #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
@@ -49,7 +49,7 @@ public class CounterStrikeEvent extends ListenerAdapter {
                 found=ChannelNames.cs.contains(i);
             }
             ChannelNames.cs.add(i-1);
-            name="「\uD83D\uDD08」 Counter Strike #"+ (i-1);
+            name="「\uD83D\uDD08」 CS #"+ (i-1);
                 ChannelAction<VoiceChannel> ca = guild.createVoiceChannel(name);
                 ca = ca.setParent(event.getChannelJoined().getParent());
                 VoiceChannel vc = ca.complete();
