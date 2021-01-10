@@ -73,7 +73,7 @@ public class JustChattingEvent extends ListenerAdapter {
                 }
                 for(VoiceChannel g:event.getGuild().getVoiceChannels())
                 {
-                    System.out.println();
+                    System.out.println(g);
                     /*if(g!=null)
                     {
                         if(Objects.requireNonNull(g.getParent()).getId().equals("797228633613795418")&&g.getMembers().isEmpty())
