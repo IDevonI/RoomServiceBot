@@ -86,10 +86,14 @@ public class JustChattingEvent extends ListenerAdapter {
                     {
                         System.out.println("ER");
                     }
-                    /*if(Objects.requireNonNull(g.getParent()).getId().equals("797228633613795418")&&g.getMembers().isEmpty())
+                    try{
+                    if(Objects.requireNonNull(g.getParent()).getId().equals("797228633613795418")&&(g.getMembers().isEmpty()))
                     {
                         g.delete().queue();
-                    }*/
+                    }}catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
                 }
             }else
             {
