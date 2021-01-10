@@ -64,7 +64,7 @@ public class ApexLegendsDuoEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.apexLegendsDuo.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(5,6)));
+                ChannelNames.apexLegendsDuo.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
                 event.getChannelLeft().delete().queue();
             }
         }
@@ -75,7 +75,7 @@ public class ApexLegendsDuoEvent extends ListenerAdapter {
         {
             if(event.getChannelLeft().getMembers().isEmpty())
             {
-                ChannelNames.apexLegendsDuo.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(5,6)));
+                ChannelNames.apexLegendsDuo.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6,7)));
                 event.getChannelLeft().delete().queue();
             }
         }
