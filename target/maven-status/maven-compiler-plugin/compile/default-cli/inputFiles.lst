@@ -3,6 +3,7 @@ E:\IntelliJ\projects\RoomService\src\main\java\utils\ChannelNames.java
 E:\IntelliJ\projects\RoomService\src\main\java\commands\Clear.java
 E:\IntelliJ\projects\RoomService\src\main\java\events\PhasmoEvent.java
 E:\IntelliJ\projects\RoomService\src\main\java\events\WorldOfTanksPlutonEvent.java
+E:\IntelliJ\projects\RoomService\src\main\java\events\TheForestEvent.java
 E:\IntelliJ\projects\RoomService\src\main\java\events\ApexLegendsTrioEvent.java
 E:\IntelliJ\projects\RoomService\src\main\java\utils\Randomizer.java
 E:\IntelliJ\projects\RoomService\src\main\java\events\CounterStrikeEvent.java
@@ -19,6 +20,8 @@ E:\IntelliJ\projects\RoomService\src\main\java\events\ApexLegendsEvent.java
 E:\IntelliJ\projects\RoomService\src\main\java\events\CounterStrikeWingmanEvent.java
 E:\IntelliJ\projects\RoomService\src\main\java\events\RocketLeagueTrioEvent.java
 E:\IntelliJ\projects\RoomService\src\main\java\events\ApexLegendsDuoEvent.java
+E:\IntelliJ\projects\RoomService\src\main\java\events\CoDEvent.java
+E:\IntelliJ\projects\RoomService\src\main\java\events\AmongUsCustomEvent.java
 E:\IntelliJ\projects\RoomService\src\main\java\events\ValorantEvent.java
 E:\IntelliJ\projects\RoomService\src\main\java\events\TfTEvent.java
 E:\IntelliJ\projects\RoomService\src\main\java\events\WorldOfTanksEvent.java

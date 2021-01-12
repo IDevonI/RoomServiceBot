@@ -87,6 +87,6 @@ public class AmongUsEvent extends ListenerAdapter {
                     }
                 }
             }
-        });
+        }).start();
     }
 }

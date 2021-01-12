@@ -25,4 +25,7 @@ public class ChannelNames {
     public static Vector<Integer> wot= new Vector<>(0);
     public static Vector<Integer> wotPluton= new Vector<>(0);
     public static Vector<Integer> amongUs= new Vector<>(0);
+    public static Vector<Integer> amongUsCustom= new Vector<>(0);
+    public static Vector<Integer> theForest= new Vector<>(0);
+    public static Vector<Integer> cod= new Vector<>(0);
 }

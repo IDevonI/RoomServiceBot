@@ -87,6 +87,6 @@ public class ApexLegendsDuoEvent extends ListenerAdapter {
                     }
                 }
             }
-        });
+        }).start();
     }
 }
