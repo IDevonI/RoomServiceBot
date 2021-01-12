@@ -46,6 +46,16 @@ public class LoLFlexEvent extends ListenerAdapter {
             Guild guild = event.getMember().getGuild();
             String name;
             if (event.getChannelJoined().getId().equals("797839984123183135")) {
+                if (Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797297810139250728") && !event.getChannelLeft().getId().equals("797839984123183135")) {
+                    if (event.getChannelLeft().getMembers().isEmpty() && event.getChannelLeft().getName().contains("Flex") && !event.getChannelLeft().getName().contains("➕")) {
+                        ChannelNames.lolFlex.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6, 7)));
+                        try {
+                            event.getChannelLeft().delete().queue();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 boolean found = true;
                 int i;
                 for (i = 1; found; i++) {

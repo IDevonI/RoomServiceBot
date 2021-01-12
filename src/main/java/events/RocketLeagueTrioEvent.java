@@ -46,6 +46,16 @@ public class RocketLeagueTrioEvent extends ListenerAdapter {
             Guild guild = event.getMember().getGuild();
             String name;
             if (event.getChannelJoined().getId().equals("797301874998116383")) {
+                if (Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797299044475994152") && !event.getChannelLeft().getId().equals("797301874998116383")) {
+                    if (event.getChannelLeft().getMembers().isEmpty() && event.getChannelLeft().getName().contains("Trio") && !event.getChannelLeft().getName().contains("➕")) {
+                        ChannelNames.rocketLeagueTrio.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6, 7)));
+                        try {
+                            event.getChannelLeft().delete().queue();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 boolean found = true;
                 int i;
                 for (i = 1; found; i++) {

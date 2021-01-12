@@ -45,6 +45,16 @@ public class RocketLeagueEvent extends ListenerAdapter {
             Guild guild = event.getMember().getGuild();
             String name;
             if (event.getChannelJoined().getId().equals("797300562529878038")) {
+                if (Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797299044475994152") && !event.getChannelLeft().getId().equals("797300562529878038")) {
+                    if (event.getChannelLeft().getMembers().isEmpty() && event.getChannelLeft().getName().contains("Rocket League") && !event.getChannelLeft().getName().contains("➕")) {
+                        ChannelNames.rocketLeague.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6, 7)));
+                        try {
+                            event.getChannelLeft().delete().queue();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 boolean found = true;
                 int i;
                 for (i = 1; found; i++) {

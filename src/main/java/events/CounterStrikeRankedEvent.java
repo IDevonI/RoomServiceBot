@@ -46,6 +46,16 @@ public class CounterStrikeRankedEvent extends ListenerAdapter {
             Guild guild = event.getMember().getGuild();
             String name;
             if (event.getChannelJoined().getId().equals("797840182551642132")) {
+                if (Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797304745178038322") && !event.getChannelLeft().getId().equals("797840182551642132")) {
+                    if (event.getChannelLeft().getMembers().isEmpty() && event.getChannelLeft().getName().contains("Rankingowa") && !event.getChannelLeft().getName().contains("➕")) {
+                        ChannelNames.csRanked.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6, 7)));
+                        try {
+                            event.getChannelLeft().delete().queue();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 boolean found = true;
                 int i;
                 for (i = 1; found; i++) {

@@ -54,6 +54,21 @@ public class JustChattingEvent extends ListenerAdapter {
             Guild guild = event.getMember().getGuild();
             String name = "OutOfNames";
             if (event.getChannelJoined().getId().equals("797635390185930782")) {
+                if (Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797228633613795418") && !event.getChannelLeft().getId().equals("797635390185930782")) {
+                    if (event.getChannelLeft().getMembers().isEmpty()) {
+                        for (int i = 0; i < ChannelNames.chattingNames.length; i++) {
+                            if (ChannelNames.chattingNames[i].equals(event.getChannelLeft().getName())) {
+                                ChannelNames.chattingAvailable[i] = 1;
+                                break;
+                            }
+                        }
+                        try {
+                            event.getChannelLeft().delete().queue();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 Randomizer randomizer = new Randomizer();
                 int[] a = randomizer.giveRandom(0, ChannelNames.chattingNames.length, ChannelNames.chattingNames.length);
                 for (int i = 0; i < ChannelNames.chattingNames.length; i++) {

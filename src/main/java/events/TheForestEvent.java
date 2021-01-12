@@ -45,6 +45,16 @@ public class TheForestEvent extends ListenerAdapter {
             Guild guild = event.getMember().getGuild();
             String name;
             if (event.getChannelJoined().getId().equals("798442796662390814")) {
+                if (Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("798442411746918480") && !event.getChannelLeft().getId().equals("798442796662390814")) {
+                    if (event.getChannelLeft().getMembers().isEmpty()) {
+                        ChannelNames.theForest.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6, 7)));
+                        try {
+                            event.getChannelLeft().delete().queue();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 boolean found = true;
                 int i;
                 for (i = 1; found; i++) {

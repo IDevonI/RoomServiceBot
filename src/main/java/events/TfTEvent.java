@@ -45,6 +45,16 @@ public class TfTEvent extends ListenerAdapter {
             Guild guild = event.getMember().getGuild();
             String name;
             if (event.getChannelJoined().getId().equals("797302488629641236")) {
+                if (Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797300812191105055") && !event.getChannelLeft().getId().equals("797302488629641236")) {
+                    if (event.getChannelLeft().getMembers().isEmpty()) {
+                        ChannelNames.tft.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6, 7)));
+                        try {
+                            event.getChannelLeft().delete().queue();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 boolean found = true;
                 int i;
                 for (i = 1; found; i++) {

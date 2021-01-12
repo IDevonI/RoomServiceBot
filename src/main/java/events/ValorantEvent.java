@@ -45,6 +45,16 @@ public class ValorantEvent extends ListenerAdapter {
             Guild guild = event.getMember().getGuild();
             String name;
             if (event.getChannelJoined().getId().equals("797303690523705385")) {
+                if (Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797302657597308929") && !event.getChannelLeft().getId().equals("797303690523705385")) {
+                    if (event.getChannelLeft().getMembers().isEmpty()) {
+                        ChannelNames.valorant.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6, 7)));
+                        try {
+                            event.getChannelLeft().delete().queue();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 boolean found = true;
                 int i;
                 for (i = 1; found; i++) {

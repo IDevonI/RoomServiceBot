@@ -46,6 +46,16 @@ public class WorldOfTanksPlutonEvent extends ListenerAdapter {
             Guild guild = event.getMember().getGuild();
             String name;
             if (event.getChannelJoined().getId().equals("797840295383400458")) {
+                if (Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797303984393420860") && !event.getChannelLeft().getId().equals("797840295383400458")) {
+                    if (event.getChannelLeft().getMembers().isEmpty() && event.getChannelLeft().getName().contains("Pluton") && !event.getChannelLeft().getName().contains("➕")) {
+                        ChannelNames.wotPluton.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6, 7)));
+                        try {
+                            event.getChannelLeft().delete().queue();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 boolean found = true;
                 int i;
                 for (i = 1; found; i++) {

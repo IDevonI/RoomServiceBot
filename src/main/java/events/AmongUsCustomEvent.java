@@ -46,6 +46,16 @@ public class AmongUsCustomEvent extends ListenerAdapter {
             Guild guild = event.getMember().getGuild();
             String name;
             if (event.getChannelJoined().getId().equals("798388491826102302")) {
+                if (Objects.requireNonNull(event.getChannelLeft().getParent()).getId().equals("797310513779703859") && !event.getChannelLeft().getId().equals("798388491826102302")) {
+                    if (event.getChannelLeft().getMembers().isEmpty()) {
+                        ChannelNames.amongUsCustom.removeElement(Integer.parseInt(event.getChannelLeft().getName().substring(6, 7)));
+                        try {
+                            event.getChannelLeft().delete().queue();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 boolean found = true;
                 int i;
                 for (i = 1; found; i++) {
