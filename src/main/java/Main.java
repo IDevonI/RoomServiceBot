@@ -16,9 +16,11 @@ public class Main {
             jda.addEventListener(new LoLDuoEvent());
             jda.addEventListener(new LoLFlexEvent());
             jda.addEventListener(new AmongUsEvent());
+            jda.addEventListener(new AmongUsCustomEvent());
             jda.addEventListener(new ApexLegendsEvent());
             jda.addEventListener(new ApexLegendsDuoEvent());
             jda.addEventListener(new ApexLegendsTrioEvent());
+            jda.addEventListener(new CoDEvent());
             jda.addEventListener(new CounterStrikeEvent());
             jda.addEventListener(new CounterStrikeWingmanEvent());
             jda.addEventListener(new CounterStrikeRankedEvent());
@@ -29,6 +31,7 @@ public class Main {
             jda.addEventListener(new RocketLeagueDuoEvent());
             jda.addEventListener(new RocketLeagueTrioEvent());
             jda.addEventListener(new TfTEvent());
+            jda.addEventListener(new TheForestEvent());
             jda.addEventListener(new ValorantEvent());
             jda.addEventListener(new WorldOfTanksEvent());
             jda.addEventListener(new WorldOfTanksPlutonEvent());
